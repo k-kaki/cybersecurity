@@ -1,0 +1,27 @@
+
+11 Detecting Phishing URLs
+
+Objective: Identify potential phishing websites based on keyword patterns.
+
+Steps:
+
+1.	Check for suspicious words in a URL.
+2.	Mark the URL as safe or phishing.
+
+Code:
+
+def detect_phishing(url):
+    suspicious_keywords = ["login", "bank", "verify", "secure", "update"]
+    if any(word in url.lower() for word in suspicious_keywords):
+        return "Warning! This might be a phishing site."
+    else:
+        return "This URL looks safe."
+
+url = input("Enter a URL: ")
+print(detect_phishing(url))
+
+Output:
+
+Enter a URL: www.bank-login-secure.com
+Warning! This might be a phishing site.
+

@@ -1,0 +1,27 @@
+10 Secure File Hashing (Integrity Check)
+
+Objective: Compute and verify file integrity using SHA-256 hashing.
+
+Steps:
+
+1.	Read a file and generate its SHA-256 hash.
+2.	Compare with the expected hash to check for tampering.
+
+Code:
+
+import hashlib
+
+def hash_file(filename):
+    sha256 = hashlib.sha256()
+    with open(filename, "rb") as f:
+        while chunk := f.read(4096):
+            sha256.update(chunk)
+    return sha256.hexdigest()
+
+file_path = input("Enter file path: ")
+print("SHA-256 Hash:", hash_file(file_path))
+
+Output:
+
+Enter file path: example.txt
+SHA-256 Hash: 3baf39e...2c4b7f1

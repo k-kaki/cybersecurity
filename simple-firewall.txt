@@ -1,0 +1,22 @@
+3. Simple Firewall using Python
+
+Objective: Block traffic from specific IPs.
+
+Steps:
+1.	Create firewall rules using iptables (Linux).
+2.	Block unwanted traffic.
+
+Code:
+
+import os
+
+blocked_ips = ["192.168.1.100", "10.0.0.5"]
+
+for ip in blocked_ips:
+    os.system(f"sudo iptables -A INPUT -s {ip} -j DROP")
+    print(f"Blocked IP: {ip}")
+
+Output:
+
+Blocked IP: 192.168.1.100
+Blocked IP: 10.0.0.5

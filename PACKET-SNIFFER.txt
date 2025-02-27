@@ -1,0 +1,22 @@
+2. Packet Sniffer
+
+Objective: Capture network packets to analyze traffic using Python.
+
+Steps:
+1.	Install scapy for packet sniffing (pip install scapy).
+2.	Capture packets and print details.
+
+Code:
+
+from scapy.all import sniff
+
+def packet_callback(packet):
+    print(packet.summary())
+
+print("Starting Packet Sniffer...")
+sniff(prn=packet_callback, count=10)
+
+Output:
+
+Starting Packet Sniffer...
+Ether / IP / TCP 192.168.1.1:443 > 192.168.1.2:59876

@@ -1,0 +1,31 @@
+9.	Simple Encryption and Decryption Tool
+
+Objective: Encrypt and decrypt messages using a simple cipher.
+
+Steps:
+
+1.	Use the Fernet encryption module from cryptography.
+2.	Encrypt user input and decrypt it back.
+
+Code:
+
+from cryptography.fernet import Fernet
+
+# Generate and store the key
+key = Fernet.generate_key()
+cipher = Fernet(key)
+
+# Encrypt the message
+message = input("Enter message to encrypt: ").encode()
+encrypted_message = cipher.encrypt(message)
+print("Encrypted:", encrypted_message)
+
+# Decrypt the message
+decrypted_message = cipher.decrypt(encrypted_message).decode()
+print("Decrypted:", decrypted_message)
+
+Output:
+
+Enter message to encrypt: Hello
+Encrypted: b'gAAAAAB...'
+Decrypted: Hello
